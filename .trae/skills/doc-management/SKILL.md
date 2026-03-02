@@ -1,6 +1,6 @@
 ---
 name: "doc-management"
-description: "管理项目文档规范，包括创建和初始化project_rules、documents文档体系、检查点机制。当用户需要创建项目规则、初始化文档体系、管理检查点或更新设计文档时调用。"
+description: "管理项目文档规范，初始化project_rules、documents体系、检查点机制"
 ---
 
 # 文档管理
