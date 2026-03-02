@@ -1,42 +1,7 @@
-# Dependencies
 node_modules/
-vendor/
-
-# Build outputs
 dist/
-build/
-*.exe
-*.dll
-
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# OS
+dist-skills/
+*.log
+*.zip
 .DS_Store
 Thumbs.db
-
-# Logs
-*.log
-logs/
-
-# Environment
-.env
-.env.local
-.env.*.local
-
-# Test coverage
-coverage/
-.nyc_output/
-
-# Temporary files
-*.tmp
-*.temp
-tmp/
-temp/
-
-# Test files (following user rule: test files start with test- or test_)
-test-*
-test_*
