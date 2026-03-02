@@ -67,6 +67,9 @@ class InteractiveUI:
         os.system('cls' if os.name == 'nt' else 'clear')
         print(Fore.CYAN + Style.BRIGHT + f'\n {title}\n')
 
+        # 获取终端宽度
+        terminal_width = self._get_terminal_width()
+
         for index, item in enumerate(items):
             is_selected = index == self.selected_index
 
@@ -74,31 +77,58 @@ class InteractiveUI:
             desc = get_description(item) if get_description else ''
 
             if is_selected:
+                # 选中状态：整行绿色背景
                 prefix = Back.GREEN + Fore.BLACK + ' > ' + Style.RESET_ALL
-                name = Back.GREEN + Fore.BLACK + ' ' + label + ' ' + Style.RESET_ALL
-                description = Back.GREEN + Fore.BLACK + ' ' + desc + ' ' + Style.RESET_ALL if desc else ''
+                # 名称行：填充到终端宽度
+                name_content = f' {label} '
+                name_padding = ' ' * max(0, terminal_width - len(name_content) - 3)
+                name = Back.GREEN + Fore.BLACK + name_content + name_padding + Style.RESET_ALL
+                # 描述行：填充到终端宽度
+                if desc:
+                    desc_content = f'   {desc} '
+                    desc_padding = ' ' * max(0, terminal_width - len(desc_content))
+                    description = Back.GREEN + Fore.BLACK + desc_content + desc_padding + Style.RESET_ALL
+                else:
+                    description = ''
             else:
+                # 未选中状态
                 prefix = '   '
                 name = label
                 description = Fore.WHITE + desc if desc else ''
 
             print(f'{prefix}{name}')
             if description:
-                print(f'    {description}')
+                print(description)
 
         print(Fore.BLACK + Style.BRIGHT + '\n (↑/↓ 选择, Enter 确认, Esc 退出)')
+
+    def _get_terminal_width(self) -> int:
+        """获取终端宽度"""
+        try:
+            import shutil
+            return shutil.get_terminal_size().columns
+        except:
+            return 80  # 默认值
 
     def _render_menu(self, options: List[str], title: str):
         os.system('cls' if os.name == 'nt' else 'clear')
         print(Fore.CYAN + Style.BRIGHT + f'\n {title}\n')
 
+        # 获取终端宽度
+        terminal_width = self._get_terminal_width()
+
         for index, option in enumerate(options):
             is_selected = index == self.selected_index
 
             if is_selected:
+                # 选中状态：整行绿色背景
                 prefix = Back.GREEN + Fore.BLACK + ' > ' + Style.RESET_ALL
-                label = Back.GREEN + Fore.BLACK + ' ' + option + ' ' + Style.RESET_ALL
+                # 填充到终端宽度
+                content = f' {option} '
+                padding = ' ' * max(0, terminal_width - len(content) - 3)
+                label = Back.GREEN + Fore.BLACK + content + padding + Style.RESET_ALL
             else:
+                # 未选中状态
                 prefix = '   '
                 label = option
 
