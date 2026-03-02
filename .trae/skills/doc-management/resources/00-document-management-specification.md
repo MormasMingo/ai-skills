@@ -449,7 +449,54 @@ reviewer: 技术负责人
 
 ## 📋 附录
 
-### 附录A：业务系统补充规范
+### 附录A：Git 提交规范
+
+#### 提交信息格式
+```
+<type>: <subject>
+
+<body>
+```
+
+#### Type 类型
+| 类型 | 说明 | 示例 |
+|------|------|------|
+| `feat` | 新功能 | `feat: add skill scanner module` |
+| `fix` | 修复bug | `fix: resolve keyboard input issue` |
+| `refactor` | 重构代码 | `refactor: optimize UI rendering logic` |
+| `docs` | 文档更新 | `docs: update project rules` |
+| `style` | 代码格式 | `style: format ui.py` |
+| `test` | 测试相关 | `test: add scanner test cases` |
+| `chore` | 构建/工具 | `chore: update build scripts` |
+
+#### Subject 规范
+- 使用**英文**，首字母小写
+- 不超过 50 个字符
+- 使用**动词开头**，描述做了什么
+- 结尾**不加句号**
+
+**正确示例**：
+- `feat: add interactive skill selection UI`
+- `fix: resolve arrow key handling on Windows`
+- `refactor: optimize terminal width calculation`
+
+**错误示例**：
+- ❌ `feat: added new feature` (过去时)
+- ❌ `fix: bug fixed.` (有句号)
+- ❌ `update` (无类型，无描述)
+- ❌ `refactor` (无具体描述)
+
+#### Body 规范（可选）
+- 当修改较复杂时，添加 body 说明
+- 描述**为什么修改**和**修改了什么**
+- 每行不超过 72 个字符
+
+#### 提交时机
+- **每个独立功能/修复**单独提交
+- **提交前**检查修改内容
+- **提交信息**必须准确描述修改内容
+
+### 附录B：业务系统补充规范
 
 各业务系统应基于本文档建立补充规范，说明：
 - 项目特定的目录结构调整
@@ -457,7 +504,7 @@ reviewer: 技术负责人
 - 技术栈相关的特殊约定
 - 与本文档的差异说明
 
-### 附录B：术语表
+### 附录C：术语表
 
 | 术语 | 定义 |
 |------|------|
@@ -466,7 +513,7 @@ reviewer: 技术负责人
 | relations | 文档关联关系 |
 | pending-issues | 待解决问题 |
 
-### 附录C：变更历史
+### 附录D：变更历史
 
 | 版本 | 日期 | 变更说明 | 作者 |
 |------|------|----------|------|
