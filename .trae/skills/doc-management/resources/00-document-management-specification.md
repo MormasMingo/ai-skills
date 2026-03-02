@@ -496,6 +496,19 @@ reviewer: 技术负责人
 - **提交前**检查修改内容
 - **提交信息**必须准确描述修改内容
 
+#### 命令行提交方式
+```bash
+# 正确方式 - 使用双引号包裹
+git commit -m "feat: add skill scanner module"
+git commit -m "fix: resolve keyboard input issue"
+
+# 错误方式 - 单引号在某些环境下可能解析失败
+git commit -m 'feat: add skill scanner'  # 可能出错
+
+# 错误方式 - 不带引号，空格会导致解析错误
+git commit -m feat: add skill scanner    # 错误！
+```
+
 ### 附录B：业务系统补充规范
 
 各业务系统应基于本文档建立补充规范，说明：

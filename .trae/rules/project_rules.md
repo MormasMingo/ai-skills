@@ -107,6 +107,19 @@ ai-skills/
 - **提交前**检查修改内容
 - **提交信息**必须准确描述修改内容
 
+#### 命令行提交方式
+```bash
+# 正确方式 - 使用双引号包裹
+git commit -m "feat: add skill scanner module"
+git commit -m "fix: resolve keyboard input issue"
+
+# 错误方式 - 单引号在某些环境下可能解析失败
+git commit -m 'feat: add skill scanner'  # 可能出错
+
+# 错误方式 - 不带引号，空格会导致解析错误
+git commit -m feat: add skill scanner    # 错误！
+```
+
 ### 3.6 其他约束
 - 使用 `keyboard` 库处理键盘输入
 - 使用 `colorama` 库处理跨平台颜色输出
